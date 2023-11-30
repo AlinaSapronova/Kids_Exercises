@@ -27,8 +27,8 @@
   </div>
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.number_field :user_id %>
+    <%# <%= form.label :user_id, style: "display: block" %> 
+    <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
 
   <div>

@@ -1,0 +1,7 @@
+id,email,encrypted_password,reset_password_token,reset_password_sent_at,remember_created_at,name,created_at,updated_at
+3,alice@example.com,$2a$12$ogeZqFypsDGhcgwT.b0rLef86UuqApZLrvImlwdAo7xEgRuV2WBnC,,,,Alice,2023-11-16 21:01:06.390068,2023-11-16 21:01:06.390068
+4,bob@example.com,$2a$12$VvvRuTiPaJ8YucRx7Uhbg.j9k2MmPcl55c03B3ioGROSMryDUQnKu,,,,Bob,2023-11-16 21:01:06.643354,2023-11-16 21:01:06.643354
+5,mary@example.com,$2a$12$zBdpiL3.Tk0wYXBQC16IUuWBY0FU9E0sTypo89poQl9tp09Ki.OH6,,,,Mary,2023-11-16 21:01:06.895425,2023-11-16 21:01:06.895425
+6,mary@gmail.com,$2a$12$uYs5e6n8GLJBy6oIdUeYuOnYQezv1OSb6VLM.Jbyr8mOVfrATED.u,,,,Mary,2023-11-21 19:05:19.024238,2023-11-21 19:05:19.024238
+7,alina@example.com,$2a$12$wjftAS18ciSdZaenQgG9ZObD.ILNol5qyfemj.NuYyV/LNjDcLRBS,,,,Alina,2023-11-21 21:45:33.255293,2023-11-21 21:48:29.715503
+

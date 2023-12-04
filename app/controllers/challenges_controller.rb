@@ -3,11 +3,17 @@ class ChallengesController < ApplicationController
 
   # GET /challenges or /challenges.json
   def index
+    child_id = params.fetch(:child_id)
+    @child = Child.where(:id => child_id)
     @challenges = Challenge.all
+    # @child = Child.find(params[:child_id])
+    # @challenges = Challenge.all
   end
 
   # GET /challenges/1 or /challenges/1.json
   def show
+    @child = Child.find(params[:child_id])
+    @challenge = Challenge.find(params[:id])
     
   end
 

@@ -4,11 +4,23 @@
    
 
   <div id="countdown-container">
-  REST TIME <span id="countdown-span" style="font-size: 24px; font-weight: bold;">5</span>
+  REST TIME <span id="countdown-span" style="font-size: 24px; font-weight: bold;">1</span>
 </div>
 
 <%# Create Post Form for Progress and handle getting @day and @challenge to create progress for current child%>
-<button id="completion-btn">Completed</button> 
+ <%= link_to  "Completed", "/children/#{@child.id}/challenges/#{@challenge.id}", id: "completion-btn" %>  
+ 
+
+<%= form_with model: Progress.new, url: progress_index_path, method: :post do |form| %>
+  <div>
+    <%= form.label :value, "Enter Progress Value:" %>
+    <%= form.text_field :value, required: true %>
+  </div>
+
+  <div>
+    <%= form.submit, "Completed", id: "completion-btn"%>
+  </div>
+<% end %>
 
 
 
@@ -47,7 +59,7 @@ $(document).ready(function() {
       countdownContainer.show();
 
       // Start the countdown after 10 seconds
-      var countdown = 5;
+      var countdown = 1;
       countdownSpan.text(countdown);
 
       var countdownInterval = setInterval(function() {
@@ -64,7 +76,7 @@ $(document).ready(function() {
           // Clear the countdown interval
           clearInterval(countdownInterval);
         }
-      }, 1000);
+      }, 500);
     }
   });
 
@@ -79,7 +91,7 @@ $(document).ready(function() {
     }).then((result) => {
       // Redirect the user to the challenge page if they click 'Go to Challenge Page'
       if (result.isConfirmed) {
-        window.location.attr('onclick', 'event.preventDefault(); history.back(); history.back();') // Replace with your actual URL
+        window.location.attr('onclick', '/children/<%=@child.id%>/challenges/<%=@challenge.id%>') // Replace with your actual URL
       }
     });
   });
@@ -89,8 +101,6 @@ $(document).ready(function() {
    <div id="countdown"></div>
 
    <% end %>
-   
-   <%# <strong>Completed at:</strong>
-   <%= day.completed_at %>
+  
 
 </div>

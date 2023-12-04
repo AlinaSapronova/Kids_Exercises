@@ -8,7 +8,9 @@ class ChildrenController < ApplicationController
 
   # GET /children/1 or /children/1.json
   def show
-    @children = Child.where(:user_id => current_user.id)
+    # @children = Child.where(:user_id => current_user.id)
+    # @challenges = Challenge.all
+    @child = Child.find(params[:id])
     @challenges = Challenge.all
   end
 
@@ -27,7 +29,7 @@ class ChildrenController < ApplicationController
 
     respond_to do |format|
       if @child.save
-        format.html { redirect_to child_url(@child), notice: "Child was successfully created." }
+        format.html { redirect_to "/", notice: "Child was successfully created." }
         format.json { render :show, status: :created, location: @child }
       else
         format.html { render :new, status: :unprocessable_entity }

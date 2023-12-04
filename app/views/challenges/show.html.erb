@@ -1,8 +1,5 @@
 <body class="daysInChallenge">
 
-  <% # <% Child.where(:user_id => current_user.id).each do |c| %>
-  <% # <%= link_to  "Back to challenges", "/children/#{c.id}", class: "backLink" %>      
-  <% # <% end %> 
   <%= link_to "Back", "#", class: "backLink", onclick: "event.preventDefault(); history.back();" %>
 
 <div>
@@ -15,7 +12,7 @@
 
 <div class="image-background">
 
-    <a href="<%= day_path(day) %>" class="button button--piyo">
+    <a href="/children/<%= @child.id %>/challenges/<%=@challenge.id %>/days/<%= day.id.to_i %>" class="button button--piyo">
         <div class="button__wrapper">
             <span class="button__text">Day <%= day.number %></span>
         </div>

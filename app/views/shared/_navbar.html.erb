@@ -23,7 +23,7 @@
             <li><hr class="dropdown-divider"></li>
               <% Child.where(:user_id => current_user.id).each do |c| %>
              <li>
-             <a class="nav-link dropdown-item" href="<%= child_path(c.id) %>"><%= c.name %></a>
+             <a class="nav-link dropdown-item" href="/children/<%=c.id%>}"><%= c.name %></a>
               </li>
               <% end %>
                <li><hr class="dropdown-divider"></li>
@@ -34,3 +34,4 @@
     <% end %>
   </div>
 </nav>
+<%# child_path(c.id) %>

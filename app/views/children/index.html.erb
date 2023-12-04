@@ -3,12 +3,14 @@
 <h1>Children</h1>
 
 <div id="children">
-  <% @children.each do |child| %>
-    <%= render child %>
-    <p>
-      <%= link_to "Show this child", child %>
-    </p>
+
+ <% Child.where(:user_id => current_user.id).each do |c| %>
+  <button class="child_profile">
+  <%= link_to  "#{c.name}", "/children/#{c.id}",  class: "child_link" %>
+  </button>     
   <% end %>
 </div>
 
 <%= link_to "New child", new_child_path %>
+
+

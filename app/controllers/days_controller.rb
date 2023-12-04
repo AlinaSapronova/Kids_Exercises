@@ -3,11 +3,22 @@ class DaysController < ApplicationController
 
   # GET /days or /days.json
   def index
-    @days = Day.all
+    @child = Child.find(params[:child_id])
+    @challenge = Challenge.find(params[:challenge_id])
+    @days = @challenge.challenges_days
   end
 
   # GET /days/1 or /days/1.json
   def show
+    @child = Child.find(params[:child_id])
+    @challenge = @challenges.challenge_days.find(params[:challenge_id])
+    @day = Challengeday.find(params[:day_id])
+  end
+
+  def show_current_challenge
+    @challenge_id = params.fetch(:ch_id)
+    @day_id = params.fetch(:day_id)
+    render "days/show"
   end
 
   # GET /days/new

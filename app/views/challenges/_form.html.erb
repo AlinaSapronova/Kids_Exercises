@@ -11,6 +11,17 @@
     </div>
   <% end %>
 
+
+    <div>
+    <%= form.label :number_of_days, style: "display: block" %>
+    <%= form.number_field :number_of_days %>
+  </div>
+
+     <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>

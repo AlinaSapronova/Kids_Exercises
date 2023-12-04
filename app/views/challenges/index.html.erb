@@ -1,14 +1,10 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Challenges</h1>
-
+<h1 id="header">Challenges</h1>
 <div id="challenges">
-  <% @challenges.each do |challenge| %>
+  <% @challenges.order(:number_of_days => :asc).each do |challenge| %>
     <%= render challenge %>
-    <p>
-      <%= link_to "Show this challenge", challenge %>
-    </p>
   <% end %>
 </div>
 
+<% if current_user.email == "alina@example.com" %>
 <%= link_to "New challenge", new_challenge_path %>
+<%end%>

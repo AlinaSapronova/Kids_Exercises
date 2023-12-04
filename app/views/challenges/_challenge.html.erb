@@ -1,2 +1,4 @@
-<div id="<%= dom_id challenge %>">
+<div class="d-grid gap-2 col-6 mx-auto" id="<%= dom_id challenge %>">
+  <button class="btn m-2 p-3 fs-4" >
+    <%= link_to "#{challenge.number_of_days} #{challenge.title}", challenge, class: "link" %></button>
 </div>

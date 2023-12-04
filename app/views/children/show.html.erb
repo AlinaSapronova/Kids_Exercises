@@ -1,10 +1,13 @@
-<p style="color: green"><%= notice %></p>
+<body class="kidsChallenges">
+<p style="color:green"><%= notice%></p>
 
-<%= render @child %>
-
+<div class="profile_container">
 <div>
-  <%= link_to "Edit this child", edit_child_path(@child) %> |
-  <%= link_to "Back to children", children_path %>
-
-  <%= button_to "Destroy this child", @child, method: :delete %>
+  <h1 style="color: #556B2F"><%= @child.name%> </h1>
+  <% @challenges.each do |challenge| %>
+   <%= render challenge %>
+  <% end %>
 </div>
+
+</div>
+</body>

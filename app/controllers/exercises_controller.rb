@@ -3,7 +3,8 @@ class ExercisesController < ApplicationController
 
   # GET /exercises or /exercises.json
   def index
-    @exercises = Exercise.all
+    @day = Day.find(params.fetch(:day_id))
+    @exercises = @day.exercises
   end
 
   # GET /exercises/1 or /exercises/1.json

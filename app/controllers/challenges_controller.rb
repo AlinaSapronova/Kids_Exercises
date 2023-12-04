@@ -4,6 +4,8 @@ class ChallengesController < ApplicationController
   # GET /challenges or /challenges.json
   def index
     @challenges = Challenge.all
+    @child_id = params.fetch(:child_id)
+    @child = Child.find(@child_id)
   end
 
   # GET /challenges/1 or /challenges/1.json

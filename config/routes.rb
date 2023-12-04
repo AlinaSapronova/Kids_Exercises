@@ -9,11 +9,17 @@ Rails.application.routes.draw do
   root "main#welcome" 
   get "/profile", to: "profile#show"
   resources :progresses
-  resources :challengedays
-  resources :exercises
-  resources :days
-  resources :challenges
-  resources :children
+  
+  
+  resources :children do
+    resources :challenges do
+      resources :days do
+        resources :exercises
+      end
+    end
+  end
+  
+
   
  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

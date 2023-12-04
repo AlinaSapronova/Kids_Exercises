@@ -1,14 +1,44 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Days</h1>
+  <%= link_to "Back", "#", class: "backLink", onclick: "event.preventDefault(); history.back();" %>
 
-<div id="days">
-  <% @days.each do |day| %>
-    <%= render day %>
-    <p>
-      <%= link_to "Show this day", day %>
-    </p>
-  <% end %>
+<div>
+<h2 class="headerInDays"><%= @challenge.number_of_days %> Days Challenge</h2>
 </div>
 
-<%= link_to "New day", new_day_path %>
+
+<div class="containers">
+<% @days.each do |day| %>
+
+<div class="image-background">
+
+    <a href="<%= child_challenge_day_exercises_path(@child ,@challenge, day) %>" class="button button--piyo">
+        <div class="button__wrapper">
+            <span class="button__text">Day <%= day.number %></span>
+        </div>
+        <div class="characterBox">
+            <div class="character wakeup">
+                <div class="character__face"></div>
+            </div>
+            <div class="character wakeup">
+                <div class="character__face"></div>
+            </div>
+            <div class="character">
+                <div class="character__face"></div>
+            </div>
+        </div>
+    </a>
+  </div>
+<% end %>
+</div>
+
+
+</div>
+<% if current_user.email == "alina@example.com" %>
+<div>
+  <%= link_to "Edit this challenge", edit_challenge_path(@challenge) %> 
+   <%= link_to "Back to challenges", challenges_path %>
+  <%= button_to "Destroy this challenge", @challenge, method: :delete %> 
+ </div>
+ <% end %>

@@ -8,11 +8,11 @@ Rails.application.routes.draw do
 
   root "main#welcome" 
   get "/profile", to: "profile#show"
-  get "/children", to: "main#get_children"
-  get "/children/new", to: "children#new"
-  get "/children/:child_id", to: "main#show" 
-  get "/children/:child_id/challenges/:ch_id", to: "main#challenges_show"
-  get "/children/:child_id/challenges/:ch_id/days/:day_id", to: 'main#show_day'
+  # get "/children", to: "main#get_children"
+  # get "/children/new", to: "children#new"
+  # get "/children/:child_id", to: "main#show" 
+  # get "/children/:child_id/challenges/:ch_id", to: "main#challenges_show"
+  # get "/children/:child_id/challenges/:ch_id/days/:day_id", to: 'main#show_day'
 
   resources :progresses
   resources :challengedays

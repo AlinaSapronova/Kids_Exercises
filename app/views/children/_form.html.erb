@@ -1,6 +1,7 @@
-<%= form_with(model: child) do |form| %>
+<body class="registration">
+<%= form_with(model: child, class: "form") do |form| %>
   <% if child.errors.any? %>
-    <div style="color: red">
+    <div class="alert alert-danger">
       <h2><%= pluralize(child.errors.count, "error") %> prohibited this child from being saved:</h2>
 
       <ul>
@@ -11,27 +12,28 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :gender, style: "display: block" %>
-    <%= form.text_field :gender %>
+  <div class="mb-3">
+    <%= form.label :gender, class: "form-label" %>
+    <%= form.text_field :gender, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :birthday, style: "display: block" %>
-    <%= form.date_field :birthday %>
+  <div class="mb-3">
+    <%= form.label :birthday, class: "form-label" %>
+    <%= form.date_field :birthday, class: "form-control" %>
   </div>
 
-  <div>
-    <%# <%= form.label :user_id, style: "display: block" %> 
+  <div class="mb-3">
+    <%# <%= form.label :user_id, class: "form-label" %> 
     <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
+</body>

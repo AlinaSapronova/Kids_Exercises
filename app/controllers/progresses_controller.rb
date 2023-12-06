@@ -12,7 +12,8 @@ class ProgressesController < ApplicationController
 
   # GET /progresses/new
   def new
-    @progress = Progress.new
+    challenge_day_id = params[:challenge_day_id]
+    @progress = Progress.new(challenge_day_id: challenge_day_id)
   end
 
   # GET /progresses/1/edit
@@ -22,10 +23,9 @@ class ProgressesController < ApplicationController
   # POST /progresses or /progresses.json
   def create
     @progress = Progress.new(progress_params)
-
     respond_to do |format|
       if @progress.save
-        format.html { redirect_to progress_url(@progress), notice: "Progress was successfully created." }
+        format.html { redirect_to "/", notice: "Progress was successfully created." }
         format.json { render :show, status: :created, location: @progress }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -1,3 +1,4 @@
+<body class="exercisesPage">
 <div id="<%= dom_id day %>" class="exercises">
    <% Exercise.where(:day_id => day.id).each do |exercise | %>
    <%= video_tag("#{exercise.video}", controls: true, class: "video-style", id: "video#{exercise.id + 1}") %>
@@ -89,8 +90,6 @@ $(document).ready(function() {
    <div id="countdown"></div>
 
    <% end %>
-   
-   <%# <strong>Completed at:</strong>
-   <%= day.completed_at %>
 
 </div>
+</body>

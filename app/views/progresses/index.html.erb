@@ -2,6 +2,15 @@
 
 <h1>Progresses</h1>
 
+<div class="progress" role="progressbar"
+ aria-label="Dynamic Progress"
+  aria-valuenow="<%= @progress_value.to_i %>" 
+  aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar text-bg-warning"
+   style="width: <%= @progress_value.to_s + '%' %>"><%= @progress_value.to_s + '%' %>
+   </div>
+</div>
+
 <div id="progresses">
   <% @progresses.each do |progress| %>
     <%= render progress %>

@@ -1,4 +1,4 @@
-<%= form_with(model: progress) do |form| %>
+<%= form_with(model: progress, id: 'progress-form') do |form| %>
   <% if progress.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(progress.errors.count, "error") %> prohibited this progress from being saved:</h2>
@@ -11,17 +11,9 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :challenge_day_id, style: "display: block" %>
-    <%= form.number_field :challenge_day_id %>
-  </div>
+  <%= form.hidden_field :challenge_day_id, value: @challenge_day_id %>
 
-  <div>
-    <%= form.label :child_id, style: "display: block" %>
-    <%= form.number_field :child_id %>
-  </div>
+  <%= form.hidden_field :child_id, value: @child_id %>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= form.submit 'Completed' %>
 <% end %>

@@ -4,10 +4,21 @@ class DaysController < ApplicationController
   # GET /days or /days.json
   def index
     @challenge = Challenge.find(params.fetch("challenge_id"))
-
-    @days = @challenge.days
     @child = Child.find(params.fetch("child_id"))
-    
+    @days = @challenge.days
+    @child_progress_num = 0
+
+    @days.each do|day| 
+
+      challenge_day = Challengeday.where(challenge_id:params.fetch("challenge_id") ).where(day_id: day.id ).at(0)
+
+      if challenge_day && Progress.exists?(challenge_day_id: challenge_day)
+        @child_progress_num += 1
+      end
+
+    end
+
+    @progress_percent = (@child_progress_num / @days.count.to_f) * 100
   end
 
   # GET /days/1 or /days/1.json
@@ -17,6 +28,8 @@ class DaysController < ApplicationController
   # GET /days/new
   def new
     @day = Day.new
+    @challenge = Challenge.find(params.fetch("challenge_id"))
+    
   end
 
   # GET /days/1/edit

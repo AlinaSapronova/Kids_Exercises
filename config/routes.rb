@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get "/profile", to: "profile#show"
   resources :progresses
   
-  
   resources :children do
     resources :challenges do
       resources :days do

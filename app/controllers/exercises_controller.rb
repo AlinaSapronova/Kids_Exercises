@@ -4,7 +4,12 @@ class ExercisesController < ApplicationController
   # GET /exercises or /exercises.json
   def index
     @day = Day.find(params.fetch(:day_id))
+    @challenge = Challenge.find(params.fetch(:challenge_id))
     @exercises = @day.exercises
+    @progress = Progress.new
+    @child_id = params.fetch("child_id")
+    @challenge_day_id = Challengeday.where(challenge_id: params.fetch("challenge_id")).where(day_id: params.fetch("day_id")).at(0).id
+
   end
 
   # GET /exercises/1 or /exercises/1.json

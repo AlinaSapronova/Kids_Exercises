@@ -101,7 +101,7 @@
 
 }
 .challenges_page{
-  background-image: url("https://cdn.vectorstock.com/i/preview-1x/01/86/avocado-character-making-exercise-squat-gym-vector-39250186.jpg");
+  background-image: url("challenge.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   min-height:100vh;
@@ -205,10 +205,7 @@
   background-size: cover;
   min-height: 100vh;
 }
-/* .video{
-  border-radius: 20px;
-  margin: 15px;
-} */
+
 .exercises{
   display: flex;
   flex-direction: column;
@@ -229,6 +226,7 @@
   width: 90%;
   height: auto;
   margin: 20px;
+  margin-left: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

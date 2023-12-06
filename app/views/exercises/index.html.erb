@@ -1,90 +1,77 @@
-<p style="color: green"><%= notice %></p>
+<body class="exercisesPage">
+  <%= link_to  "Back", child_challenge_days_path, class: "backLink" %>
 
-<h1>Exercises</h1>
+  <div class="exercises">
+    <% @exercises.each do |exercise | %>
+      <%= video_tag("#{exercise.video}", controls: true, class: "video-style", id: "video#{exercise.id + 1}") %>
 
-<% @exercises.each do |exercise | %>
-  <%= video_tag("#{exercise.video}", controls: true, class: "video-style", id: "video#{exercise.id + 1}") %>
+      <div id="countdown-container">
+        REST TIME <span id="countdown-span" style="font-size: 24px; font-weight: bold;">5</span>
+      </div>
 
-  <div id="countdown-container">
-    REST TIME <span id="countdown-span" style="font-size: 24px; font-weight: bold;">5</span>
-  </div>
+      <%# javascript countdown for video  %>
+      <script>
+        $(document).ready(function() {
+          // Get the list of video elements
+          var videos = $('[id^="video"]');
+          var countdownContainer = $('#countdown-container');
+          var countdownSpan = $('#countdown-span');
+          var completionBtn = $('#completion-btn');
 
-  <%# Create Post Form for Progress and handle getting @day and @challenge to create progress for current child%>
-  <button id="completion-btn">Completed</button>
+          // Initialize index and play the first video
+          var currentIndex = 0;
+          videos[currentIndex].play();
 
-  <script>
-    $(document).ready(function() {
-      // Get the list of video elements
-      var videos = $('[id^="video"]');
-      var countdownContainer = $('#countdown-container');
-      var countdownSpan = $('#countdown-span');
-      var completionBtn = $('#completion-btn');
+          // Attach an event listener for the "ended" event
+          videos.on("ended", function() {
+            // Hide the current video
+            $(videos[currentIndex]).hide();
 
-      // Initialize index and play the first video
-      var currentIndex = 0;
-      videos[currentIndex].play();
+            // Increment the index or show completion button if at the end
+            currentIndex = (currentIndex + 1) % videos.length;
 
-      // Attach an event listener for the "ended" event
-      videos.on("ended", function() {
-        // Hide the current video
-        $(videos[currentIndex]).hide();
+            if (currentIndex === 0) {
+              // Show the completion button after the last video
+              completionBtn.show();
 
-        // Increment the index or show completion button if at the end
-        currentIndex = (currentIndex + 1) % videos.length;
-
-        if (currentIndex === 0) {
-          // Show the completion button after the last video
-          completionBtn.show();
-
-          // Hide the countdown container
-          countdownContainer.hide();
-        } else {
-          // Show the next video
-          $(videos[currentIndex]).show();
-
-          // Show the countdown container
-          countdownContainer.show();
-
-          // Start the countdown after 10 seconds
-          var countdown = 5;
-          countdownSpan.text(countdown);
-
-          var countdownInterval = setInterval(function() {
-            countdown--;
-            countdownSpan.text(countdown);
-
-            if (countdown <= 0) {
               // Hide the countdown container
               countdownContainer.hide();
+            } else {
+              // Show the next video
+              $(videos[currentIndex]).show();
 
-              // Play the next video
-              videos[currentIndex].play();
+              // Show the countdown container
+              countdownContainer.show();
 
-              // Clear the countdown interval
-              clearInterval(countdownInterval);
+              // Start the countdown after 10 seconds
+              var countdown = 1;
+              countdownSpan.text(countdown);
+
+              var countdownInterval = setInterval(function() {
+                countdown--;
+                countdownSpan.text(countdown);
+
+                if (countdown <= 0) {
+                  // Hide the countdown container
+                  countdownContainer.hide();
+
+                  // Play the next video
+                  videos[currentIndex].play();
+
+                  // Clear the countdown interval
+                  clearInterval(countdownInterval);
+                }
+              }, 500);
             }
-          }, 1000);
-        }
-      });
-
-      // Handle completion button click
-      completionBtn.on('click', function() {
-        // Show a stylish SweetAlert2 modal
-        Swal.fire({
-          title: 'Good job!',
-          text: 'You completed your daily exercises!',
-          icon: 'success',
-          confirmButtonText: 'Go to Challenge Page'
-        }).then((result) => {
-          // Redirect the user to the challenge page if they click 'Go to Challenge Page'
-          if (result.isConfirmed) {
-            window.location.attr('onclick', 'event.preventDefault(); history.back(); history.back();') // Replace with your actual URL
-          }
+          });
         });
-      });
-    });
-  </script>
+      </script>
 
-  <div id="countdown"></div>
+      <div id="countdown"></div>
 
-<% end %>
+    <% end %>
+
+    <%= render partial: "progresses/form", locals: {progress: @progress} %>
+  </div>
+
+</body>

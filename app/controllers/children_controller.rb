@@ -11,7 +11,7 @@ class ChildrenController < ApplicationController
     @children = Child.where(:user_id => current_user.id)
     @challenges = Challenge.all
   end
-
+ 
   # GET /children/new
   def new
     @child = Child.new

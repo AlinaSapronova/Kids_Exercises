@@ -1,7 +1,7 @@
 <body class="daysInChallenge">
 
 <h1></h1>
-  <%= link_to "Back", "#", class: "backLink", onclick: "event.preventDefault(); history.back();" %>
+  <%= link_to "Back", child_challenges_path, class: "backLink" %>
 
 <div>
 <h2 class="headerInDays"><%= @challenge.number_of_days %> Days Challenge</h2>

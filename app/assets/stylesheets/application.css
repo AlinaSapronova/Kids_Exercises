@@ -53,7 +53,6 @@ body{
   border: none;
   box-shadow: 10px 10px 10px #5F7161;
   font-family: 'Rammetto One', sans-serif;
-
 }
 .homeP{
   font-size: 35px;
@@ -323,6 +322,11 @@ body{
 .progress-bar{
   background-color: #4CAF50;
   height: 25px;
+}
+
+.profile{
+  display: flex;
+  justify-content: center;
 }
 
 

@@ -1,10 +1,16 @@
-<p style="color: green"><%= notice %></p>
+
 
 <%= render @progress %>
+<div class="progress" role="progressbar"
+ aria-label="Animated striped example"
+  aria-valuenow="<%= @progress_percent.to_i %>">
+ <div class="progress-bar progress-bar-striped progress-bar-animated"
+   style="width: <%= @progress_percent.to_s + '%' %>"><%= @progress_percent.to_s + '%' %>
+   </div>
+
+   </div>
 
 <div>
-  <%= link_to "Edit this progress", edit_progress_path(@progress) %> |
   <%= link_to "Back to progresses", progresses_path %>
-
   <%= button_to "Destroy this progress", @progress, method: :delete %>
 </div>

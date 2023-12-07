@@ -11,6 +11,10 @@
 #  user_id    :integer
 #
 class Child < ApplicationRecord
+  validates :name, presence: true
+  validates :gender, presence: true
+  validates :birthday, presence: true
+  
   belongs_to :user, class_name: "User", foreign_key: "user_id"
   has_many  :progresses, class_name: "Progress", foreign_key: "child_id"
 end

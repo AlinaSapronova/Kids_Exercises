@@ -8,6 +8,17 @@
 </div>
 
 
+<div class="progress" role="progressbar"
+ aria-label="Animated striped example"
+  aria-valuenow="<%= @progress_percent.to_i %>" 
+  aria-valuemin="0" aria-valuemax="<%= @days.count %>">
+  <div class="progress-bar progress-bar-striped progress-bar-animated"
+   style="width: <%= @progress_percent.to_s + '%' %>"><%= @progress_percent.to_s + '%' %>
+   </div>
+</div>
+
+
+
 <div class="containers">
 <% @days.each do |day| %>
 
@@ -32,18 +43,7 @@
   </div>
 <% end %>
 </div>
-<% if @days != @days.count%>
-<div class="progress" role="progressbar"
- aria-label="Animated striped example"
-  aria-valuenow="<%= @progress_percent.to_i %>" 
-  aria-valuemin="0" aria-valuemax="<%= @days.count %>">
-  <div class="progress-bar progress-bar-striped progress-bar-animated"
-   style="width: <%= @progress_percent.to_s + '%' %>"><%= @progress_percent.to_s + '%' %>
-   </div>
-</div>
-<% else %>
-<%= @progress_percent.reset %>
-<% end %>
+
 
 <%# </div> %>
 <%# <% if current_user.email == "alina@example.com" %>

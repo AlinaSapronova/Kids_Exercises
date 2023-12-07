@@ -13,7 +13,9 @@
 
   <%= form.hidden_field :challenge_day_id, value: @challenge_day_id %>
 
+  <%= form.hidden_field :challenge_id, value: @challenge.id %>
+
   <%= form.hidden_field :child_id, value: @child_id %>
 
-  <%= form.submit 'Completed' %>
+  <%= form.submit 'Completed', id: "completion-btn" %>
 <% end %>

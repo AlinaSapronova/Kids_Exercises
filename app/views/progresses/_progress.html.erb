@@ -4,9 +4,8 @@
     <%= progress.challenge_day_id %>
   </p>
 
-  <p>
-    <strong>Child:</strong>
-    <%= progress.child_id %>
-  </p>
+  <h2>
+    <%= Child.where(:id => progress.child_id)[0].name %>
+  </h2>
 
 </div>

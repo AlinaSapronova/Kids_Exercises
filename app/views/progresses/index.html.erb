@@ -1,22 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Progresses</h1>
+<h1>Progress</h1>
 
-<div class="progress" role="progressbar"
- aria-label="Dynamic Progress"
-  aria-valuenow="<%= @progress_value.to_i %>" 
-  aria-valuemin="0" aria-valuemax="100">
-  <div class="progress-bar text-bg-warning"
-   style="width: <%= @progress_value.to_s + '%' %>"><%= @progress_value.to_s + '%' %>
-   </div>
-</div>
+
 
 <div id="progresses">
   <% @progresses.each do |progress| %>
+  <% child = Child.where(:id => progress.child_id)[0] %>
+  <% if child.id == progress.child_id%>
+  <h2><%=child.name%></h2>
     <%= render progress %>
     <p>
       <%= link_to "Show this progress", progress %>
     </p>
+    <%end%>
   <% end %>
 </div>
 

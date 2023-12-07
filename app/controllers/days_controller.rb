@@ -12,7 +12,7 @@ class DaysController < ApplicationController
 
       challenge_day = Challengeday.where(challenge_id:params.fetch("challenge_id") ).where(day_id: day.id ).at(0)
 
-      if challenge_day && Progress.exists?(challenge_day_id: challenge_day)
+      if challenge_day && @child.progresses.exists?(challenge_day_id: challenge_day)
         @child_progress_num += 1
       end
 

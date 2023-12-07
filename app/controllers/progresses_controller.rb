@@ -3,11 +3,14 @@ class ProgressesController < ApplicationController
 
   # GET /progresses or /progresses.json
   def index
-    @progresses = Progress.all
+    @child = Child.where(:user_id => current_user.id)
+    @progresses = Progress.where(child_id: @child)
   end
 
   # GET /progresses/1 or /progresses/1.json
   def show
+    @child = Child.all
+   
   end
 
   # GET /progresses/new
@@ -25,7 +28,9 @@ class ProgressesController < ApplicationController
     @progress = Progress.new(progress_params)
     respond_to do |format|
       if @progress.save
-        format.html { redirect_to "/", notice: "Progress was successfully created." }
+        format.html 
+        fallback_location = request.referrer
+        redirect_back(fallback_location: fallback_location, notice: "Progress was successfully created.")
         format.json { render :show, status: :created, location: @progress }
       else
         format.html { render :new, status: :unprocessable_entity }

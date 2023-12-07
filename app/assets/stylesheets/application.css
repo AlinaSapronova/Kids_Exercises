@@ -328,6 +328,11 @@ body{
   display: flex;
   justify-content: center;
 }
+.profileBackground{
+  background-image: url("profile_background.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 
 @media screen and (max-width: 500px){

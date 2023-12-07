@@ -17,10 +17,11 @@
     <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="mb-3">
-    <%= form.label :gender, class: "form-label" %>
-    <%= form.text_field :gender, class: "form-control" %>
-  </div>
+<div class="mb-3">
+  <%= form.label :gender, class: "form-label" %>
+  <%= form.select :gender, options_for_select([["select", nil], ["Male", "Male"], ["Female", "Female"]], form.object.gender), { class: "form-select", "aria-label" => "Default select example" } %>
+</div>
+
 
   <div class="mb-3">
     <%= form.label :birthday, class: "form-label" %>

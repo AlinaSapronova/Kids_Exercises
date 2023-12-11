@@ -34,7 +34,7 @@ A simple application for keeping kids busy, to create good habits, give more sel
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/AlinaSapronova/exercise_for_kids.git)https://github.com/AlinaSapronova/exercise_for_kids.git```
+   git clone [https://github.com/AlinaSapronova/exercise_for_kids.git)https://github.com/AlinaSapronova/exercise_for_kids.git](https://github.com/AlinaSapronova/Kids_Exercises.git)```
    
 3. ```bundle install```
 4. ```rails db:create```

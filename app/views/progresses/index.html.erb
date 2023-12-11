@@ -1,20 +1,15 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Progress</h1>
-
-
-
-<div id="progresses">
-  <% @progresses.each do |progress| %>
-  <% child = Child.where(:id => progress.child_id)[0] %>
-  <% if child.id == progress.child_id%>
-  <h2><%=child.name%></h2>
-    <%= render progress %>
-    <p>
-      <%= link_to "Show this progress", progress %>
-    </p>
-    <%end%>
-  <% end %>
-</div>
-
-<%= link_to "New progress", new_progress_path %>
+<body class="profileBackground">
+   <h1 style="color: #1B615E;">Progress</h1>
+   <br>
+   <h1 style="color: #1B615E;">( COMING SOON )</h1>
+   <div id="progresses">
+      <% @progresses.each do |progress| %>
+      <% child = Child.where(:id => progress.child_id)[0] %>
+      <% if child.id == progress.child_id%>
+      <%= render progress %>
+      <p>
+         <%= link_to "Show this progress", progress %>
+      </p>
+      <%end%>
+      <% end %>
+   </div>

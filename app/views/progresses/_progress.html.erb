@@ -1,11 +1,16 @@
 <div id="<%= dom_id progress %>">
-  <p>
-    <strong>Challenge day:</strong>
-    <%= progress.challenge_day_id %>
-  </p>
-
-  <h2>
-    <%= Child.where(:id => progress.child_id)[0].name %>
-  </h2>
-
+   <p>
+      <strong>Challenge day:</strong>
+      <%= progress.challenge_day_id %>
+   </p>
+   <h2>
+      <%= Child.where(:id => progress.child_id)[0].name %>
+   </h2>
+   <div class="progress" role="progressbar"
+      aria-label="Animated striped example"
+      aria-valuenow="<%= @progress_percent.to_i %>" >
+      <div class="progress-bar progress-bar-striped progress-bar-animated"
+         style="width: <%= @progress_percent.to_s + '%' %>"><%= @progress_percent.to_s + '%' %>
+      </div>
+   </div>
 </div>

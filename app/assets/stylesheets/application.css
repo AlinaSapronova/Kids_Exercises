@@ -141,7 +141,7 @@ body{
 .child_profile{
   background-color: #b5d0bc;
   margin: 30px;
-  padding: 50px;
+  padding: 40px;
   list-style: none;
   border-radius: 10px;
   box-shadow: 10px 10px 5px rgb(173, 230, 212);
@@ -155,13 +155,7 @@ body{
   border: none;
 }
 
-.child_btn{
-  text-decoration: none;
-  color: #6D8B74;
-  font-size: 40px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  
-}
+
 .edit{
   display: flex;
   
@@ -333,6 +327,9 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
 }
+#progresses{
+ text-align: center;
+}
 
 
 @media screen and (max-width: 500px){
@@ -340,4 +337,42 @@ body{
   width: 250px;
   height: 200px;
 }
+.h3{
+  font-size: 20px;
+
+}
+.homeP{
+  font-size: 20px;
+}
+.promo{
+  width: auto;
+}
+.custom{
+  font-size: 15px;
+}
+h1{
+  font-size: 35px;
+}
+.child_profile{
+  width: 200px;
+  margin-left: 60px;
+}
+.child_link{
+  font-size: 25px;
+}
+.profile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+}
+
+@media screen and (max-width: 300px){
+  .child_profile{
+    width: 150px;
+    margin-left: 30px;
+  }
+
+
 }

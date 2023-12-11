@@ -7,17 +7,12 @@ class DaysController < ApplicationController
     @child = Child.find(params.fetch("child_id"))
     @days = @challenge.days
     @child_progress_num = 0
-
     @days.each do|day| 
-
-      challenge_day = Challengeday.where(challenge_id:params.fetch("challenge_id") ).where(day_id: day.id ).at(0)
-
+      challenge_day = Challengeday.where(challenge_id: params.fetch("challenge_id") ).where(day_id: day.id ).at(0)
       if challenge_day && @child.progresses.exists?(challenge_day_id: challenge_day)
         @child_progress_num += 1
       end
-
     end
-
     @progress_percent = (@child_progress_num / @days.count.to_f) * 100
   end
 

@@ -1,13 +1,11 @@
 <body class="kidsChallenges">
-<p style="color:green"><%= notice%></p>
-
-<div class="profile_container">
-<div>
-  <h1 style="color: #556B2F"><%= @child.name%> </h1>
-  <% @challenges.each do |challenge| %>
-   <%= render challenge %>
-  <% end %>
-</div>
-
-</div>
+   <p style="color:green"><%= notice%></p>
+   <div class="profile_container">
+      <div>
+         <h1 style="color: #556B2F"><%= @child.name%> </h1>
+         <% @challenges.each do |challenge| %>
+         <%= render challenge %>
+         <% end %>
+      </div>
+   </div>
 </body>

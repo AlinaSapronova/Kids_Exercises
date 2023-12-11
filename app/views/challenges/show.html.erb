@@ -1,39 +1,30 @@
 <body class="daysInChallenge">
-
-  <%= link_to "Back", "#", class: "backLink", onclick: "event.preventDefault(); history.back();" %>
-
-<div>
-<h2 class="headerInDays"><%= @challenge.number_of_days %> Days Challenge</h2>
-</div>
-
-
-<div class="containers">
-<% @challenge.days.each do |day| %>
-
-<div class="image-background">
-
-    <a href="<%= child_challenges_path(child ,@challenge) %>" class="button button--piyo">
-        <div class="button__wrapper">
-            <span class="button__text">Day <%= day.number %></span>
-        </div>
-        <div class="characterBox">
-            <div class="character wakeup">
-                <div class="character__face"></div>
+   <%= link_to "Back", "#", class: "backLink", onclick: "event.preventDefault(); history.back();" %>
+   <div>
+      <h2 class="headerInDays"><%= @challenge.number_of_days %> Days Challenge</h2>
+   </div>
+   <div class="containers">
+      <% @challenge.days.each do |day| %>
+      <div class="image-background">
+         <a href="<%= child_challenges_path(child ,@challenge) %>" class="button button--piyo">
+            <div class="button__wrapper">
+               <span class="button__text">Day <%= day.number %></span>
             </div>
-        </div>
-    </a>
-  </div>
-<% end %>
-</div>
-
-
-</div>
-<% if current_user.email == "alina@example.com" %>
-<div>
-  <%= link_to "Edit this challenge", edit_challenge_path(@challenge) %> 
-   <%= link_to "Back to challenges", challenges_path %>
-  <%= button_to "Destroy this challenge", @challenge, method: :delete %> 
- </div>
- <% end %>
-
+            <div class="characterBox">
+               <div class="character wakeup">
+                  <div class="character__face"></div>
+               </div>
+            </div>
+         </a>
+      </div>
+      <% end %>
+   </div>
+   </div>
+   <% if current_user.email == "alina@example.com" %>
+   <div>
+      <%= link_to "Edit this challenge", edit_challenge_path(@challenge) %> 
+      <%= link_to "Back to challenges", challenges_path %>
+      <%= button_to "Destroy this challenge", @challenge, method: :delete %> 
+   </div>
+   <% end %>
 </body>

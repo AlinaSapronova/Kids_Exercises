@@ -1,16 +1,13 @@
 <body class="kidsChallenges">
-<div class="profile_container">
-<div>
-  <h1 style="color: #556B2F"><%= @child.name%> </h1>
-  <% @challenges.each do |challenge| %>
-   <%= render challenge %>
-  <% end %>
-</div>
-
-</div>
+   <div class="profile_container">
+      <div>
+         <h1 style="color: #556B2F"><%= @child.name%> </h1>
+         <% @challenges.each do |challenge| %>
+         <%= render challenge %>
+         <% end %>
+      </div>
+   </div>
+   <% if current_user.email == "alina@example.com" %>
+   <%= link_to "New challenge", new_child_challenge_path(@child,@challenge) %>
+   <%end %>
 </body>
-
-
-<%# <% if current_user.email == "alina@example.com" %>
-<%#= link_to "New challenge", new_child_challenge_path(@child,@challenge) %>
-<%# <%end%> 

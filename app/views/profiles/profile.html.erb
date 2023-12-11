@@ -1,11 +1,8 @@
 <body class="profileBackground">
-
-<h1 style="color: #1B615E; margin: 20px"> <%= current_user.name %>'s Profile</h1>
-
-<div class="profile">
-  <% Child.where(:user_id => current_user).each do |child|%>
-<button class="child_profile" ><%= link_to "#{child.name} Progress", progresses_path, class: "child_link"%></button>
-<%end%>
-<div>
-
+   <h1 style="color: #1B615E; margin: 20px"> <%= current_user.name %>'s Profile</h1>
+   <div class="profile">
+   <% Child.where(:user_id => current_user).each do |child|%>
+   <button class="child_profile" ><%= link_to "#{child.name} Progress", progresses_path, class: "child_link"%></button>
+   <%end%>
+   <div>
 </body>

@@ -38,5 +38,6 @@ A simple application for keeping kids busy, to create good habits, give more sel
    
 3. ```bundle install```
 4. ```rails db:create```
-5. ```rails s```
+5. ```rake sample_data```
+6. ```rails s```
 

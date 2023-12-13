@@ -6,6 +6,7 @@ ruby "3.2.1"
 gem "carrierwave"
 gem "cloudinary"
 gem "simple_form"
+gem "meta-tags"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"

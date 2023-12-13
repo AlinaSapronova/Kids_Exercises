@@ -1,5 +1,6 @@
 class DaysController < ApplicationController
   before_action :set_day, only: %i[ show edit update destroy ]
+  skip_after_action :verify_authorized, only: [:index]
 
   # GET /days or /days.json
   def index

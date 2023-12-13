@@ -1,5 +1,7 @@
 class ChallengesController < ApplicationController
+  
   before_action :set_challenge, only: %i[ show edit update destroy ]
+  skip_after_action :verify_authorized, only: [:index]
 
   # GET /challenges or /challenges.json
   def index

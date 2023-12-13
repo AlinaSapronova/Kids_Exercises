@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Kids Exercises</title>
+      <%= display_meta_tags(default_meta_tags) %>
     <%= render partial: "shared/assets" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
@@ -9,7 +10,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "button", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-     <%= display_meta_tags(default_meta_tags) %>
+   
   </head>
 
   <body>

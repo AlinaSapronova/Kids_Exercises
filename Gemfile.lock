@@ -470,7 +470,7 @@ DEPENDENCIES
   http
   importmap-rails
   jbuilder
-  meta-tags
+  meta-tags (~> 2.1)
   pg (~> 1.1)
   pry-rails
   puma (~> 5.0)

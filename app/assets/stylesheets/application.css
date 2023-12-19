@@ -326,6 +326,7 @@ body{
   background-image: url("profile_background.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh;
 }
 #progresses{
  text-align: center;
@@ -340,6 +341,31 @@ body{
   h1{
     font-size: 35px;
   }
+  .homeP{
+    font-size: 25px;
+  }
+  .promo{
+    width: auto;
+  }
+  .child_profile{
+     width: 300px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+  }
+  .child_link{
+    font-size: 25px;
+  }
+  .profileBackground{
+    min-height: 100vh;
+  }
+  .profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
 }
 
 @media screen and (max-width: 500px){
@@ -347,6 +373,9 @@ body{
     background-image: url("minscreen.png");
     background-repeat: no-repeat;
     background-size: cover;
+  }
+  h1{
+    font-size: 30px;
   }
 .video{
   width: 250px;

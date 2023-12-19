@@ -1,7 +1,6 @@
 class ChildrenController < ApplicationController
-  before_action :authorize_child_new, only: [:new]
   before_action :set_child, only: %i[ show edit update destroy ]
-  
+  before_action :authorize_child_new, only: [:new, :profile]
 
   # GET /children or /children.json
   def index
@@ -23,6 +22,11 @@ class ChildrenController < ApplicationController
   # GET /children/1/edit
   def edit
     # authorize @child
+  end
+
+  def profile
+    @children = Child.where(user_id: current_user.id)
+    render ("profiles/profile")
   end
 
   # POST /children or /children.json
@@ -65,6 +69,7 @@ class ChildrenController < ApplicationController
     end
   end
 
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_child

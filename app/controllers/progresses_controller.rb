@@ -1,5 +1,6 @@
 class ProgressesController < ApplicationController
   before_action :set_progress, only: %i[ show edit update destroy ]
+  skip_after_action :verify_authorized
 
   # GET /progresses or /progresses.json
   def index

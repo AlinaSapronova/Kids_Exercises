@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   authenticated :user do
     root "main#welcome", as: :authenticated_root
   end
-
   
   get "/profile", to: "profile#show"
+
   resources :progresses
   
   resources :children do

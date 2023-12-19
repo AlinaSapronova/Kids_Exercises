@@ -2,11 +2,15 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  unauthenticated do
+    root "main#welcome"
+  end
+
   authenticated :user do
     root "main#welcome", as: :authenticated_root
   end
 
-  root "main#welcome" 
+  
   get "/profile", to: "profile#show"
   resources :progresses
   

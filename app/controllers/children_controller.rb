@@ -1,6 +1,7 @@
 class ChildrenController < ApplicationController
-  before_action :set_child, only: %i[ show edit update destroy ]
   before_action :authorize_child_new, only: [:new]
+  before_action :set_child, only: %i[ show edit update destroy ]
+  
 
   # GET /children or /children.json
   def index
@@ -9,7 +10,7 @@ class ChildrenController < ApplicationController
 
   # GET /children/1 or /children/1.json
   def show
-    authorize @child
+     authorize @child
     @children = Child.where(:user_id => current_user.id)
     @challenges = Challenge.all
   end
@@ -21,7 +22,7 @@ class ChildrenController < ApplicationController
 
   # GET /children/1/edit
   def edit
-    authorize @child
+    # authorize @child
   end
 
   # POST /children or /children.json
@@ -41,7 +42,7 @@ class ChildrenController < ApplicationController
 
   # PATCH/PUT /children/1 or /children/1.json
   def update
-    authorize @child
+    # authorize @child
     respond_to do |format|
       if @child.update(child_params)
         format.html { redirect_to child_url(@child), notice: "Child was successfully updated." }
@@ -55,7 +56,7 @@ class ChildrenController < ApplicationController
 
   # DELETE /children/1 or /children/1.json
   def destroy
-    authorize @child
+    # authorize @child
     @child.destroy
 
     respond_to do |format|
@@ -68,7 +69,7 @@ class ChildrenController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_child
       @child = Child.find(params[:id])
-      authorize @child
+      # authorize @child
     end
 
     # Only allow a list of trusted parameters through.

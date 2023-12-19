@@ -5,6 +5,9 @@ class ChildPolicy < ApplicationPolicy
   def new?
     true
   end
+  def profile?
+   true
+  end
 
   def update?
     record.user == user

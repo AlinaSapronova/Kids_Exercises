@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   end
 
   root "main#welcome" 
-  get "/profile", to: "profile#show"
+  get '/profile', to: 'children#profile'
+
   resources :progresses
   
   resources :children do

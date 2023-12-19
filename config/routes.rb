@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     root "main#welcome", as: :authenticated_root
   end
   
-  get "/profile", to: "profile#show"
+  get "/profile", to: "children#profile"
 
   resources :progresses
   
@@ -21,12 +21,5 @@ Rails.application.routes.draw do
       end
     end
   end
-  
 
-  
- 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

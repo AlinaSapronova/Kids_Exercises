@@ -5,6 +5,7 @@ class ChildPolicy < ApplicationPolicy
   def new?
     true
   end
+  
   def profile?
    true
   end

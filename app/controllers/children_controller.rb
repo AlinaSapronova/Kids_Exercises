@@ -21,6 +21,7 @@ class ChildrenController < ApplicationController
 
   # GET /children/1/edit
   def edit
+    # if you are not using this logic anymore we should remove it.
     # authorize @child
   end
 

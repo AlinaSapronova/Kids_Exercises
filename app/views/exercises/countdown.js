@@ -31,7 +31,7 @@
                countdownContainer.show();
          
                // Start the countdown after 10 seconds
-               var countdown = 1;
+               var countdown = 5;
                countdownSpan.text(countdown);
          
                var countdownInterval = setInterval(function() {

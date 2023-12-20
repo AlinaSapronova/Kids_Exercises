@@ -21,7 +21,6 @@ class ChildrenController < ApplicationController
 
   # GET /children/1/edit
   def edit
-    # authorize @child
   end
 
   def profile
@@ -46,7 +45,6 @@ class ChildrenController < ApplicationController
 
   # PATCH/PUT /children/1 or /children/1.json
   def update
-    # authorize @child
     respond_to do |format|
       if @child.update(child_params)
         format.html { redirect_to child_url(@child), notice: "Child was successfully updated." }
@@ -60,7 +58,6 @@ class ChildrenController < ApplicationController
 
   # DELETE /children/1 or /children/1.json
   def destroy
-    # authorize @child
     @child.destroy
 
     respond_to do |format|

@@ -1,7 +1,9 @@
 class ChildPolicy < ApplicationPolicy
+
   def show?
     record.user == user
   end
+
   def new?
     true
   end
@@ -18,5 +20,4 @@ class ChildPolicy < ApplicationPolicy
     record.user == user
   end
 
- 
 end

@@ -6,9 +6,62 @@
       <div id="countdown-container">
          REST TIME <span id="countdown-span" style="font-size: 24px; font-weight: bold;">5</span>
       </div>
-      <%# javascript countdown for video  %>
-      <script src="countdown.js" async></script>
-
+     <script>
+               $(document).ready(function() {
+         
+           var videos = $('[id^="video"]');
+           var countdownContainer = $('#countdown-container');
+           var countdownSpan = $('#countdown-span');
+           var completionBtn = $('#completion-btn');
+         
+         
+           var currentIndex = 0;
+           videos[currentIndex].play();
+         
+         
+           videos.on("ended", function() {
+            
+             $(videos[currentIndex]).hide();
+         
+   
+             currentIndex = (currentIndex + 1) % videos.length;
+         
+             if (currentIndex === 0) {
+             
+               completionBtn.show();
+         
+              
+               countdownContainer.hide();
+             } else {
+              
+               $(videos[currentIndex]).show();
+         
+              
+               countdownContainer.show();
+         
+            
+               var countdown = 5;
+               countdownSpan.text(countdown);
+         
+               var countdownInterval = setInterval(function() {
+                 countdown--;
+                 countdownSpan.text(countdown);
+         
+                 if (countdown <= 0) {
+                  
+                   countdownContainer.hide();
+         
+                
+                   videos[currentIndex].play();
+         
+                  
+                   clearInterval(countdownInterval);
+                 }
+               }, 700);
+             }
+           });
+         });
+         </script>
       <div id="countdown"></div>
       <% end %>
       <%= render partial: "progresses/form", locals: {progress: @progress} %>
